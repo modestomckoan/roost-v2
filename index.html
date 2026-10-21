@@ -355,7 +355,7 @@
             <div class="hero-sub"><span class="sk" style="width:60px;height:11px;border-radius:5px;"></span></div>
           </div>
           <div class="pill" data-toast="搜索（结构占位）">
-            <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M16.5 16.5 21 21"/></svg></div>
+            <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M16.5 16.5 21 21"/></svg>搜索</div>
         </div>
         <div class="disc-hero-body" id="discBody">
           <div class="quick-row no-scrollbar" id="quickRow"></div>
@@ -387,7 +387,7 @@
     <div class="hero-headbar" id="discHeadbar">
       <div class="hb-left"><span class="sk"></span><span class="sk s2"></span></div>
       <div class="pill hb-device" data-toast="搜索（结构占位）">
-        <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M16.5 16.5 21 21"/></svg></div>
+        <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M16.5 16.5 21 21"/></svg>搜索</div>
     </div>
   </section>
 
@@ -463,11 +463,12 @@ new MutationObserver(function(ms){ms.forEach(function(m){m.addedNodes.forEach(fu
 /* ============ 自绘图标（栖 · 圆头细线） ============ */
 var RING='<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="7.5"/><circle cx="12" cy="12" r="3"/></svg>';
 var QUICK=[
-  {t:'计时',s:'<circle cx="12" cy="13" r="8"/><path d="M12 13V9.4M12 13l2.6 1.8"/><path d="M9 2.5h6"/>'},
+  {t:'番茄钟',s:'<circle cx="12" cy="13.5" r="7"/><path d="M9.5 7.2c.4-1.4 1.4-2.2 2.5-2.2s2.1.8 2.5 2.2"/><path d="M12 5V3.6"/><path d="M12 13.4v-2.6"/><path d="M12 13.4l2 1.4"/>'},
   {t:'呼吸',s:'<circle cx="12" cy="12" r="8.5"/><path d="M10.4 9.2l4.6 2.8-4.6 2.8z"/>'},
   {t:'连耳机',s:'<circle cx="9.4" cy="12" r="4.4"/><circle cx="15.2" cy="12" r="4.4"/>'},
   {t:'白噪音',s:'<circle cx="12" cy="12" r="2.2" fill="currentColor" stroke="none"/><path d="M6.6 9a8 8 0 0 0 0 6M17.4 9a8 8 0 0 1 0 6"/>'},
-  {t:'花园',s:'<path d="M5 19c0-8 5-13 14-14-1 9-6 14-14 14z"/><path d="M5 19c3-4 7-7 10-9"/>'}
+  {t:'社区',s:'<circle cx="9" cy="9" r="3"/><path d="M4 19.5c0-2.9 2.2-4.6 5-4.6s5 1.7 5 4.6"/><path d="M16 10.6a2.7 2.7 0 1 0 0-5.3"/><path d="M16.6 15c2.3.4 3.6 1.9 3.6 4.2"/>'},
+  {t:'日记',s:'<path d="M14.5 4.5l5 5L8.5 20.5l-5 1 1-5z"/><path d="M12.8 6.2l5 5"/>'}
 ];
 var ME=[
   {t:'最近播放',s:'<circle cx="12" cy="12" r="8.5"/><path d="M10.6 9.4l4 2.6-4 2.6z"/>'},
