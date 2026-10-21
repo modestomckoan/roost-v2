@@ -167,15 +167,15 @@
 
   /* ===== 探索页：上半沉浸段 ===== */
   .disc-hero-body{position:absolute;top:calc(env(safe-area-inset-top) + 96px);left:0;right:0;z-index:2;}
-  .quick-row{display:flex;gap:10px;padding:6px 12px 8px;overflow-x:auto;}
-  .quick{flex:0 0 66px;display:flex;flex-direction:column;align-items:center;gap:10px;cursor:pointer;}
+  .quick-row{display:grid;grid-template-columns:repeat(5,1fr);gap:16px 6px;padding:6px 14px 8px;}
+  .quick{display:flex;flex-direction:column;align-items:center;gap:10px;cursor:pointer;}
   .quick .qicon{width:54px;height:54px;border-radius:18px;background:var(--panel);
     border:1px solid var(--line);display:flex;align-items:center;justify-content:center;
     transition:transform .15s,background .2s;}
   .quick:active .qicon{transform:scale(.92);background:var(--panel2);}
   .quick .qicon svg{width:25px;height:25px;stroke:var(--accent);fill:none;stroke-width:1.6;}
   .quick .qlabel{font-size:12px;color:var(--txt-dim);white-space:nowrap;}
-  .disc-func{margin-top:26px;}
+  .disc-func{margin-top:34px;}
   .disc-slot{margin:0 16px;height:104px;border-radius:18px;cursor:pointer;
     border:1px dashed rgba(92,125,104,.34);background:rgba(255,255,255,.42);}
 
@@ -490,7 +490,7 @@ function fCard(){
 function fillRow(id,n){var r=document.getElementById(id);for(var i=0;i<n;i++)r.appendChild(fCard());}
 ['homeRow1','homeRow2'].forEach(function(id){fillRow(id,6);});
 
-/* 探索：5 功能键 */
+/* 探索：6 功能键（两行） */
 document.getElementById('quickRow').innerHTML=QUICK.map(function(q){
   return '<div class="quick" data-toast="'+q.t+'（结构占位）"><div class="qicon"><svg viewBox="0 0 24 24">'+q.s+'</svg></div><div class="qlabel">'+q.t+'</div></div>';
 }).join('');
