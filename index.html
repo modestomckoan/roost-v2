@@ -1,1 +1,408 @@
-PLACEHOLDER
+<!DOCTYPE html>
+<html lang='zh-CN'>
+<head>
+<meta charset='UTF-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'>
+<title>栖 ROOST · 诗意地栖居</title>
+<link rel='icon' href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M6 19a10 10 0 0 1 20 0' fill='none' stroke='%235C7D68' stroke-width='2' stroke-linecap='round'/%3E%3Cpath d='M6 19h20' fill='none' stroke='%235C7D68' stroke-width='2' stroke-linecap='round'/%3E%3Ccircle cx='16' cy='19' r='1.8' fill='%235C7D68'/%3E%3C/svg%3E">
+<link rel='stylesheet' href='styles.css'></head>
+<body>
+<div class='phone'>
+  <!-- ============ 首页（简单页） ============ -->
+  <section class='view active' id='view-home'>
+    <div class='hero-scroll no-scrollbar' id='homeScroll'>
+      <div class='hero' id='homeHero'>
+        <div class='hero-bg'><span class='glow g1'></span><span class='glow g2'></span></div>
+        <div class='hero-vig'></div>
+        <div class='hero-top' style='justify-content:flex-start;'>
+          <div class='hero-device' data-go='device'>
+            <svg viewBox='0 0 24 24'><path d='M4 14v-2a8 8 0 0 1 16 0v2'/><path d='M4 14a2 2 0 0 0-2 2v2a2 2 0 0 0 2 2h1.2v-8H4z'/><path d='M20 14a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2h-1.2v-8H20z'/></svg>
+          </div>
+          <div class='hero-bubble' data-go='device'>连接耳机，开始冥想</div>
+        </div>
+        <div class='hero-center'>
+          <div class='breath'>
+            <span class='ring r1'></span><span class='ring r2'></span><span class='ring r3'></span>
+            <div class='core'>
+              <svg viewBox='0 0 24 24'><path d='M4 14a8 8 0 0 1 16 0'/><path d='M4 14h16'/><circle cx='12' cy='14' r='1.4' fill='currentColor' stroke='none'/></svg>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class='sheet sheet-home'>
+        <div class='chevron' data-expand='1'>
+          <svg viewBox='0 0 24 24'><path d='M6 14l6-6 6 6'/><path d='M6 19l6-6 6 6'/></svg>
+        </div>
+        <div class='grab-handle' data-expand='1'></div>
+        <div class='greet' id='greetText'>欢迎回来</div>
+        <div class='greet-title'>把这一刻，轻轻还给自己。</div>
+
+        <div class='rec-card'>
+          <div class='rl'>为你推荐</div>
+          <div class='rt' id='homeDayTitle'>Day 1 · 在这里安顿</div>
+          <div class='rs' id='homeDaySub'></div>
+          <canvas class='rwave' id='homeWave' width='120' height='50'></canvas>
+          <button class='cta' id='homeStart'>开始今日练习</button>
+        </div>
+
+        <div class='daily-card'>
+          <div class='daily-mark'>
+            <svg viewBox='0 0 24 24'><circle cx='12' cy='12' r='4'/><path d='M12 2.5v2.4M12 19.1v2.4M2.5 12h2.4M19.1 12h2.4M5.2 5.2l1.7 1.7M17.1 17.1l1.7 1.7M18.8 5.2l-1.7 1.7M6.9 17.1l-1.7 1.7'/></svg>
+          </div>
+          <div>
+            <div class='daily-quote serif' id='dailyQuote'></div>
+            <div class='daily-date' id='dailyDate'></div>
+          </div>
+        </div>
+
+        <div class='home-banner'>
+          <span>30 DAYS · A LITTLE MORE PRESENT</span>
+          <p>不必清空念头，也不必追求一个分数。<br>在呼吸与声音之间，练习一次次回来。</p>
+          <button class='text-btn' id='bannerProgram'>查看 30 天计划</button>
+        </div>
+
+        <div class='section-title'>适合此刻的练习</div>
+        <div class='quick-card' id='qcNight'>
+          <div class='ic'><svg viewBox='0 0 24 24'><path d='M21 12.8A9 9 0 1 1 11.2 3a7 0 0 0 9.8 9.8z'/></svg></div>
+          <div><div class='t'>晚间安住 · 身体觉察</div><div class='s'>约 16 分钟 · 从呼吸回到身体</div></div>
+        </div>
+        <div class='quick-card' id='qcNeck'>
+          <div class='ic'><svg viewBox='0 0 24 24'><path d='M12 2v6m0 8v6M2 12h6m8 0h6'/><circle cx='12' cy='12' r='3'/></svg></div>
+          <div><div class='t'>肩颈松绑</div><div class='s'>约 15 分钟 · 觉察肩颈与全身</div></div>
+        </div>
+        <div class='quick-card' id='qcSleep'>
+          <div class='ic'><svg viewBox='0 0 24 24'><path d='M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z'/></svg></div>
+          <div><div class='t'>睡前放松 · 慢慢入睡</div><div class='s'>约 16 分钟 · 舒缓呼吸，帮你入眠</div></div>
+        </div>
+
+        <div class='section-title'>本周状态</div>
+        <div class='stats-row'>
+          <div class='stat'><div class='num' id='statDone'>0 / 30</div><div class='lbl'>已完成练习</div></div>
+          <div class='stat'><div class='num' id='statMin'>0</div><div class='lbl'>累计分钟</div></div>
+        </div>
+      </div>
+    </div>
+    <div class='hero-headbar' id='homeHeadbar' style='justify-content:flex-start;'>
+      <div class='hero-device' data-go='device'>
+        <svg viewBox='0 0 24 24'><path d='M4 14v-2a8 8 0 0 1 16 0v2'/><path d='M4 14a2 2 0 0 0-2 2v2a2 2 0 0 0 2 2h1.2v-8H4z'/><path d='M20 14a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2h-1.2v-8H20z'/></svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 探索（复杂页） ============ -->
+  <section class='view' id='view-discover'>
+    <div class='hero-scroll no-scrollbar' id='discScroll'>
+      <div class='hero' id='discHero'>
+        <div class='hero-bg'><span class='glow g1'></span><span class='glow g2'></span></div>
+        <div class='hero-vig'></div>
+        <div class='hero-top'>
+          <div>
+            <div class='hero-title'><span class='sk' style='width:96px;height:26px;border-radius:8px;'></span>
+              <svg class='car' viewBox='0 0 24 24'><path d='M9 6l6 6-6 6'/></svg></div>
+            <div class='hero-sub'><span class='sk' style='width:60px;height:11px;border-radius:5px;'></span></div>
+          </div>
+          <div class='pill' data-go='search' onclick="openOvl('search')">
+            <svg viewBox='0 0 24 24'><circle cx='11' cy='11' r='7'/><path d='M16.5 16.5 21 21'/></svg>搜索</div>
+        </div>
+        <div class='disc-hero-body'>
+          <div class='quick-row' id='quickRow'></div>
+          <div class='disc-banners'>
+            <div class='disc-banner b1' data-go='program' onclick="openOvl('program')">
+              <svg viewBox='0 0 24 24'><rect x='3' y='4' width='18' height='17' rx='2'/><path d='M3 10h18M8 2v4M16 2v4'/></svg>
+              <div class='bt'>30 天计划</div><div class='bs'>循序渐进，每天一课</div></div>
+            <div class='disc-banner b2' data-go='garden' onclick="openOvl('garden')">
+              <svg viewBox='0 0 24 24'><path d='M12 3c4 4 4 8 0 12-4-4-4-8 0-12z'/><path d='M12 15v6M9 19l3 2 3-2'/></svg>
+              <div class='bt'>声音花园</div><div class='bs'>自然声音，自由混音</div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class='sheet sheet-disc'>
+        <div class='chevron' data-expand='1'>
+          <svg viewBox='0 0 24 24'><path d='M6 14l6-6 6 6'/><path d='M6 19l6-6 6 6'/></svg>
+        </div>
+        <div class='grab-handle' data-expand='1'></div>
+        <div class='etab-rail no-scrollbar' id='etabRail'>
+          <div class='et active' data-et='explore'>探索</div>
+          <div class='et' data-et='course'>课程</div>
+          <div class='et' data-et='sound'>声音</div>
+          <div class='et' data-et='scene'>场景</div>
+        </div>
+
+        <!-- 探索：侧边分类 + 条目 -->
+        <div class='epane active' id='ep-explore'>
+          <div class='disc-body'>
+            <div class='disc-left no-scrollbar' id='catList'></div>
+            <div class='disc-right'><div class='disc-list' id='discList'></div></div>
+          </div>
+        </div>
+        <!-- 课程：30天 -->
+        <div class='epane' id='ep-course'><div id='programList' style='padding-top:14px;'></div></div>
+        <!-- 声音：混音器 -->
+        <div class='epane' id='ep-sound'>
+          <div class='section-title' style='padding-top:18px;'>声音花园 · 可多层混音</div>
+          <div class='mixer-grid' id='mixerGrid'></div>
+          <div class='mix-toolbar'>
+            <div class='btn-line' id='mixStop'>停止全部声音</div>
+          </div>
+        </div>
+        <!-- 场景 -->
+        <div class='epane' id='ep-scene'>
+          <div class='section-title' style='padding-top:18px;'>按场景选择</div>
+          <div class='scene-grid' id='sceneGrid'></div>
+        </div>
+      </div>
+    </div>
+    <div class='hero-headbar' id='discHeadbar'>
+      <div class='hb-left'><span class='sk'></span><span class='sk s2'></span></div>
+      <div class='pill hb-device' data-go='search' onclick="openOvl('search')">
+        <svg viewBox='0 0 24 24'><circle cx='11' cy='11' r='7'/><path d='M16.5 16.5 21 21'/></svg>搜索</div>
+    </div>
+  </section>
+
+  <!-- ============ 自我 ============ -->
+  <section class='view' id='view-self'>
+    <div class='ovl-body no-scrollbar' style='position:absolute;top:0;bottom:var(--tabbar-h);left:0;right:0;overflow-y:auto;'>
+      <div class='self-top'>
+        <div class='pill' data-go='device'>
+          <svg viewBox='0 0 24 24'><path d='M4 14v-2a8 8 0 0 1 16 0v2'/><path d='M4 14a2 2 0 0 0-2 2v2a2 2 0 0 0 2 2h1.2v-8H4z'/><path d='M20 14a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2h-1.2v-8H20z'/></svg>连接耳机</div>
+        <div class='top-icons'>
+          <div class='icon-btn' data-go='search'><svg viewBox='0 0 24 24'><circle cx='11' cy='11' r='7'/><path d='M16.5 16.5 21 21'/></svg></div>
+          <div class='icon-btn' data-go='settings'><svg viewBox='0 0 24 24'><circle cx='12' cy='12' r='3.4'/><circle cx='12' cy='12' r='8.5'/><path d='M12 2v2M12 20v2M2 12h2M20 12h2M5 5l1.4 1.4M17.6 17.6 19 19M19 5l-1.4 1.4M6.4 17.6 5 19'/></svg></div>
+        </div>
+      </div>
+      <div class='profile'>
+        <span class='avatar'></span>
+        <div class='pinfo'><div class='pname'>栖居者</div><div class='pid' id='selfId'>已记录 0 天</div></div>
+      </div>
+      <div class='follow3'>
+        <div class='fcol' data-go='diary'><span class='num' id='fDiary'>0</span><span class='lab'>日记</span></div>
+        <div class='fcol' data-go='archive'><span class='num' id='fAnchor'>0</span><span class='lab'>舒适锚点</span></div>
+        <div class='fcol' data-go='stats'><span class='num' id='fStreak'>0</span><span class='lab'>连续天数</span></div>
+      </div>
+      <div class='vip-card'>
+        <div class='vip-txt'><b>声音花园 · 免费开放</b><span>自然声音与引导课程，全部可自由使用</span></div>
+        <div class='vip-btn' data-go='garden'>去听听</div>
+      </div>
+      <div class='data2'>
+        <div class='dcard' data-go='stats'><div class='dt'>冥想时长（分钟）</div><div class='dv' id='dMin'>0</div></div>
+        <div class='dcard' data-go='stats'><div class='dt'>累计次数</div><div class='dv' id='dCount'>0</div></div>
+      </div>
+      <div class='me-grid' id='meGrid'></div>
+    </div>
+  </section>
+
+  <!-- ============ 覆盖层：冥想会话 ============ -->
+  <div class='ovl' id='ovl-session'>
+    <div class='session-hero'>
+      <div class='session-back' data-close='1'><svg viewBox='0 0 24 24'><path d='M18 6 6 18M6 6l12 12'/></svg></div>
+      <div class='session-day' id='sDay'>Day 1 · 在这里安顿</div>
+      <div class='session-timer' id='sTimer'>00:00</div>
+    </div>
+    <div class='session-orb-wrap'>
+      <div class='session-orb'>
+        <div class='so-ring' id='soRing'></div>
+        <div class='so-core'><div class='so-phase' id='soPhase'>准备</div><div class='so-count' id='soCount'>自然呼吸</div></div>
+      </div>
+    </div>
+    <progress id='sProgress' value='0' max='100'></progress>
+    <div class='session-script'>
+      <div class='st serif' id='sText'>点击下方按钮，开始这一课</div>
+      <div class='sh' id='sHint'>引导语将自动朗读，可随时暂停</div>
+    </div>
+    <div class='session-controls'>
+      <div class='sc-btn' id='sSoundBtn'><svg viewBox='0 0 24 24'><path d='M11 5 6 9H3v6h3l5 4V5z'/><path d='M16 9l4 6M21 9l-4 6'/></svg>环境音</div>
+      <div class='sc-btn primary' id='sPlayBtn'><svg viewBox='0 0 24 24'><path d='M8 5v14l11-7z'/></svg>开始</div>
+    </div>
+  </div>
+
+  <!-- 完成 -->
+  <div class='ovl' id='ovl-done'>
+    <div class='ovl-body' style='display:flex;align-items:center;'>
+      <div class='done-card'>
+        <div class='done-kicker'>SESSION COMPLETE</div>
+        <div class='done-title serif'>把这一刻，留给明天</div>
+        <div class='done-text' id='doneText'></div>
+        <input class='input' id='anchorInput' placeholder='例如：肩膀沉下去的那一下，脑子是空的'>
+        <div style='height:14px;'></div>
+        <button class='cta' id='saveAnchor'>存入舒适档案</button>
+        <div style='height:10px;'></div>
+        <div class='btn-line' data-close='1' style='height:44px;border-radius:22px;'>暂不记录</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 30天计划 -->
+  <div class='ovl' id='ovl-program'>
+    <div class='ovl-top'><div class='ovl-back' data-close='1'><svg viewBox='0 0 24 24'><path d='M15 6l-6 6 6 6'/></svg></div>
+      <div class='ovl-title'>30 天 · 循序渐进</div></div>
+    <div class='ovl-body' id='ovlProgramList'></div>
+  </div>
+
+  <!-- 声音花园 -->
+  <div class='ovl' id='ovl-garden'>
+    <div class='ovl-top'><div class='ovl-back' data-close='1'><svg viewBox='0 0 24 24'><path d='M15 6l-6 6 6 6'/></svg></div>
+      <div class='ovl-title'>声音花园</div></div>
+    <div class='ovl-body'>
+      <p style='font-size:13px;color:var(--txt-dim);line-height:1.8;padding:4px 16px 12px;'>真实自然录音与柔和器乐。选择一层或几层声音，调到刚刚好的音量。</p>
+      <div class='mixer-grid' id='ovlMixerGrid'></div>
+      <div class='mix-toolbar'><div class='btn-line' id='ovlMixStop'>停止全部声音</div></div>
+    </div>
+  </div>
+
+  <!-- 社区 -->
+  <div class='ovl' id='ovl-community'>
+    <div class='ovl-top'><div class='ovl-back' data-close='1'><svg viewBox='0 0 24 24'><path d='M15 6l-6 6 6 6'/></svg></div>
+      <div class='ovl-title'>栖心社区</div></div>
+    <div class='ovl-body' id='communityBody'></div>
+    <div class='ovl-foot'><button class='cta' id='postBtn'>写点什么</button></div>
+  </div>
+
+  <!-- 日记 -->
+  <div class='ovl' id='ovl-diary'>
+    <div class='ovl-top'><div class='ovl-back' data-close='1'><svg viewBox='0 0 24 24'><path d='M15 6l-6 6 6 6'/></svg></div>
+      <div class='ovl-title'>我的日记</div></div>
+    <div class='ovl-body' id='diaryBody'></div>
+    <div class='ovl-foot'><button class='cta' id='diaryBtn'>写日记</button></div>
+  </div>
+
+  <!-- 日记编辑 -->
+  <div class='ovl' id='ovl-diary-edit'>
+    <div class='ovl-top'><div class='ovl-back' data-close='1'><svg viewBox='0 0 24 24'><path d='M15 6l-6 6 6 6'/></svg></div>
+      <div class='ovl-title'>写日记</div></div>
+    <div class='ovl-body'>
+      <div class='field'><label>今天的心情</label>
+        <div class='chip-row' id='moodChips'>
+          <div class='chip2' data-mood='平静'>平静</div><div class='chip2' data-mood='放松'>放松</div>
+          <div class='chip2' data-mood='疲惫'>疲惫</div><div class='chip2' data-mood='焦虑'>焦虑</div>
+          <div class='chip2' data-mood='低落'>低落</div><div class='chip2' data-mood='开心'>开心</div></div></div>
+      <div class='field'><label>记录此刻</label>
+        <textarea class='textarea' id='diaryText' placeholder='今天发生了什么？身体和心情有什么变化？'></textarea></div>
+    </div>
+    <div class='ovl-foot'><button class='cta' id='diarySave'>保存</button></div>
+  </div>
+
+  <!-- 舒适档案 -->
+  <div class='ovl' id='ovl-archive'>
+    <div class='ovl-top'><div class='ovl-back' data-close='1'><svg viewBox='0 0 24 24'><path d='M15 6l-6 6 6 6'/></svg></div>
+      <div class='ovl-title'>舒适档案</div></div>
+    <div class='ovl-body' id='archiveBody'></div>
+  </div>
+
+  <!-- 设备 -->
+  <div class='ovl' id='ovl-device'>
+    <div class='ovl-top'><div class='ovl-back' data-close='1'><svg viewBox='0 0 24 24'><path d='M15 6l-6 6 6 6'/></svg></div>
+      <div class='ovl-title'>设备</div></div>
+    <div class='ovl-body'>
+      <div class='device-card'>
+        <svg width='46' height='46' viewBox='0 0 24 24' style='margin:6px auto;display:block;' fill='none' stroke='#5C7D68' stroke-width='1.5'><path d='M4 12c2-4 4-4 6 0s4 4 6 0 4-4 4-4'/><circle cx='4' cy='12' r='1.5' fill='#5C7D68'/></svg>
+        <div class='device-title serif'>耳机待接入</div>
+        <div class='device-desc'>你的脑机接口耳机还在开发中。<br>此版本先用模拟脑电数据走通完整闭环。<br><br>硬件就绪后，通过蓝牙连接，<br>实时读取 α / θ / β 频段功率；<br>当前不能判断真实放松程度。</div>
+        <div class='device-bars'><span></span><span></span><span></span><span></span><span></span></div>
+        <div style='font-size:10px;color:var(--txt-faint);letter-spacing:2px;'>WAITING FOR HARDWARE</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 番茄钟 -->
+  <div class='ovl' id='ovl-pomo'>
+    <div class='ovl-top'><div class='ovl-back' data-close='1'><svg viewBox='0 0 24 24'><path d='M15 6l-6 6 6 6'/></svg></div>
+      <div class='ovl-title'>番茄钟</div></div>
+    <div class='timer-stage'>
+      <div class='pomo-modes'>
+        <div class='chip2 sel' data-pomo='25'>专注 25 分</div>
+        <div class='chip2' data-pomo='15'>专注 15 分</div>
+        <div class='chip2' data-pomo='5'>休息 5 分</div></div>
+      <div class='timer-ring'>
+        <svg width='230' height='230' viewBox='0 0 230 230'><circle cx='115' cy='115' r='100' fill='none' stroke='#E7E3D9' stroke-width='8'/><circle id='pomoArc' cx='115' cy='115' r='100' fill='none' stroke='#5C7D68' stroke-width='8' stroke-dasharray='628.3' stroke-dashoffset='628.3'/></svg>
+        <div class='tc'><div class='tnum' id='pomoNum'>25:00</div><div class='tlab' id='pomoLab'>准备开始</div></div>
+      </div>
+    </div>
+    <div class='ovl-foot' style='display:flex;gap:12px;'>
+      <div class='btn-line' id='pomoReset' style='height:48px;border-radius:24px;'>重置</div>
+      <div class='btn-line primary' id='pomoPlay' style='height:48px;border-radius:24px;background:var(--aurora);color:#fff;border:none;font-weight:600;flex:1;'>开始</div>
+    </div>
+  </div>
+
+  <!-- 呼吸练习 -->
+  <div class='ovl' id='ovl-breath'>
+    <div class='ovl-top'><div class='ovl-back' data-close='1'><svg viewBox='0 0 24 24'><path d='M15 6l-6 6 6 6'/></svg></div>
+      <div class='ovl-title'>呼吸练习</div></div>
+    <div class='timer-stage'>
+      <div class='timer-ring'>
+        <svg width='230' height='230' viewBox='0 0 230 230'><circle cx='115' cy='115' r='100' fill='none' stroke='#E7E3D9' stroke-width='8'/></svg>
+        <div class='tc'><div class='tnum' id='brPhase' style='font-size:38px;'>吸气</div><div class='tlab' id='brCount'>4</div></div>
+      </div>
+    </div>
+    <div class='ovl-foot'><button class='cta' id='brPlay'>开始</button></div>
+  </div>
+
+  <!-- 白噪音（直接进声音花园混音） -->
+  <div class='ovl' id='ovl-white'>
+    <div class='ovl-top'><div class='ovl-back' data-close='1'><svg viewBox='0 0 24 24'><path d='M15 6l-6 6 6 6'/></svg></div>
+      <div class='ovl-title'>白噪音</div></div>
+    <div class='ovl-body'>
+      <div class='mixer-grid' id='whiteGrid' style='padding-top:14px;'></div>
+      <div class='mix-toolbar'><div class='btn-line' id='whiteStop'>停止全部声音</div></div>
+    </div>
+  </div>
+
+  <!-- 搜索 / 设置（占位） -->
+  <div class='ovl' id='ovl-search'>
+    <div class='ovl-top'><div class='ovl-back' data-close='1'><svg viewBox='0 0 24 24'><path d='M15 6l-6 6 6 6'/></svg></div>
+      <div class='ovl-title'>搜索</div></div>
+    <div class='ovl-body'>
+      <div class='field'><input class='input' placeholder='搜索课程、声音、场景'></div>
+      <div class='field'><label>热门搜索</label>
+        <div class='chip-row'><div class='chip2'>助眠</div><div class='chip2'>焦虑</div><div class='chip2'>肩颈</div><div class='chip2'>雨声</div><div class='chip2'>专注</div></div></div>
+    </div>
+  </div>
+  <div class='ovl' id='ovl-settings'>
+    <div class='ovl-top'><div class='ovl-back' data-close='1'><svg viewBox='0 0 24 24'><path d='M15 6l-6 6 6 6'/></svg></div>
+      <div class='ovl-title'>设置</div></div>
+    <div class='ovl-body'><div class='empty'>设置项预留，<br>后续版本补充</div></div>
+  </div>
+  <div class='ovl' id='ovl-stats'>
+    <div class='ovl-top'><div class='ovl-back' data-close='1'><svg viewBox='0 0 24 24'><path d='M15 6l-6 6 6 6'/></svg></div>
+      <div class='ovl-title'>我的数据</div></div>
+    <div class='ovl-body'>
+      <div class='data2' style='margin-top:14px;'><div class='dcard'><div class='dt'>冥想时长（分钟）</div><div class='dv' id='stMin'>0</div></div>
+        <div class='dcard'><div class='dt'>累计次数</div><div class='dv' id='stCount'>0</div></div></div>
+    </div>
+  </div>
+
+  <!-- ============ 底部导航 ============ -->
+  <nav class='tabbar'>
+    <div class='tab active' data-view='home'>
+      <svg viewBox='0 0 24 24'><path d='M4 13a8 8 0 0 1 16 0'/><path d='M4 13h16'/><circle cx='12' cy='13' r='1.3' fill='currentColor' stroke='none'/></svg>
+      <span class='tlabel'>首页</span></div>
+    <div class='tab' data-view='discover'>
+      <svg viewBox='0 0 24 24'><circle cx='12' cy='12' r='9'/><path d='M15.5 8.5l-2.2 5-4.8 1.8 1.8-4.8z'/></svg>
+      <span class='tlabel'>探索</span></div>
+    <div class='tab' data-view='self'>
+      <svg viewBox='0 0 24 24'><circle cx='12' cy='8' r='3.5'/><path d='M5 19c0-3.3 3.1-5.2 7-5.2s7 1.9 7 5.2'/></svg>
+      <span class='tlabel'>自我</span></div>
+  </nav>
+  <div id='bootLoading' style='position:absolute;inset:0;z-index:200;display:flex;flex-direction:column;align-items:center;justify-content:center;background:linear-gradient(160deg,#EAF1EC 0%,#F3F1EB 55%,#F0E9E1 100%);'>
+  <div style='width:46px;height:46px;border-radius:50%;border:2px solid rgba(92,125,104,.25);border-top-color:#5C7D68;animation:blspin 0.9s linear infinite;'></div>
+  <div style='margin-top:16px;font-size:13px;letter-spacing:2px;color:rgba(92,125,104,.75)'>正在准备课程</div>
+</div>
+<style>@keyframes blspin{to{transform:rotate(360deg);}}</style>
+<div class='toast' id='toast'></div>
+</div>
+<script src='app1.js'></script>
+<script src='app1b.js'></script>
+<script src='app1c.js'></script>
+<script src='app1c2.js'></script>
+<script src='app1c3.js'></script>
+<script src='app1d.js'></script>
+<script src='app1e.js'></script>
+<script src='app2a.js'></script>
+<script src='app2b.js'></script>
+<script src='app2b2.js'></script>
+<script src='app2c.js'></script>
+<script src='app2d.js'></script>
+<script src='app2e.js'></script>
+</body>
+</html>
